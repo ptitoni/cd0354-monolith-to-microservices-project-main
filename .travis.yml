@@ -17,15 +17,15 @@ script:
   - docker build -t udagram-api-user ./udagram-api-user
   - docker build -t udagram-frontend ./udagram-frontend
   - docker build -t udagram-reverseproxy ./udagram-reverseproxy
-  - docker tag udagram-api-feed elkouranjica/udagram-api-feed:latest
-  - docker tag udagram-api-user elkouranjica/udagram-api-user:latest
-  - docker tag udagram-frontend elkouranjica/udagram-frontend:latest
-  - docker tag udagram-reverseproxy elkouranjica/udagram-reverseproxy:latest
+  - docker tag udagram-api-feed elkouranjica/udagram-api-feed:v1
+  - docker tag udagram-api-user elkouranjica/udagram-api-user:v1
+  - docker tag udagram-frontend elkouranjica/udagram-frontend:v1
+  - docker tag udagram-reverseproxy elkouranjica/udagram-reverseproxy:v1
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push elkouranjica/udagram-api-feed:latest
-  - docker push elkouranjica/udagram-api-user:latest
-  - docker push elkouranjica/udagram-frontend:latest
-  - docker push elkouranjica/udagram-reverseproxy:latest
+  - docker push elkouranjica/udagram-api-feed:v1
+  - docker push elkouranjica/udagram-api-user:v1
+  - docker push elkouranjica/udagram-frontend:v1
+  - docker push elkouranjica/udagram-reverseproxy:v1
 
